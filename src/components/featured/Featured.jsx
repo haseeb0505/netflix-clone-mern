@@ -32,14 +32,14 @@ export default function Featured({ type }) {
       />
       <div className="info">
         <img
-          src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vhv.rs%2Fviewpic%2FiThxmbm_the-matrix-matrix-movie-logo-png-transparent-png%2F&psig=AOvVaw08oDJvd1GpHk3fKZfTWTri&ust=1652452117344000&source=images&cd=vfe&ved=0CAkQjRxqFwoTCLCR9f6V2vcCFQAAAAAdAAAAABAD"
+          src="https://occ-0-1432-1433.1.nflxso.net/dnm/api/v6/LmEnxtiAuzezXBjYXPuDgfZ4zZQ/AAAABUZdeG1DrMstq-YKHZ-dA-cx2uQN_YbCYx7RABDk0y7F8ZK6nzgCz4bp5qJVgMizPbVpIvXrd4xMBQAuNe0xmuW2WjoeGMDn1cFO.webp?r=df1"
           alt=""
         />
         <span className="description">
-          To delete local storage sessions, use the removeItem() method. When
-          passed a key name, the removeItem() method removes that key from the
-          storage if it exists. If there is no item associated with the given
-          key, this method will do nothing.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
+          adipisci repellendus eum quasi illo, velit numquam, maxime tempora
+          sint deleniti, aliquid qui? Facilis, adipisci! Ratione hic repudiandae
+          temporibus eum earum?
         </span>
         <div className="buttons">
           <button className="play">
