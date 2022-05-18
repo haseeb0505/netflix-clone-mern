@@ -35,7 +35,7 @@ router.post("/login", async (req, res) => {
         if (!validPass) {
             return res.status(400).send("Invalid password")
         }
-        const accesstoken = jwt.sign({ id: user._id, isAdmin: user.isAdmin }, process.env.SECRET_KEY, { expiresIn: "1d" })
+        const accesstoken = jwt.sign({ id: user._id, isAdmin: user.isAdmin }, process.env.SECRET_KEY, { expiresIn: "5d" })
         const { password, ...info } = user._doc
         res.status(200).send({ ...info, accesstoken })
 

@@ -64,7 +64,7 @@ router.delete('/:id', verify, async (req, res) => {
 }
 )
 // get movie  
-router.get('/:id', verify, async (req, res) => {
+router.get('/find/:id', verify, async (req, res) => {
 
     try {
         const movie = await Movie.findById(req.params.id);
@@ -101,6 +101,22 @@ router.get('/random', verify, async (req, res) => {
 
 
         res.status(200).json(movie)
+    } catch (error) {
+        res.status(500).json({
+            message: error.message
+        })
+    }
+
+}
+)
+
+// get movie  
+router.get('/', verify, async (req, res) => {
+
+    try {
+        const movie = await Movie.find();
+
+        res.status(200).json(movie.reverse())
     } catch (error) {
         res.status(500).json({
             message: error.message
