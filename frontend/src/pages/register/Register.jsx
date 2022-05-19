@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Register.scss";
 
 export default function Register() {
@@ -13,7 +14,7 @@ export default function Register() {
   const handleFinish = () => {
     setPassWord(passwordRef.current.value);
   };
-  console.log(email, password);
+
   return (
     <div className="register">
       <div className="top">
@@ -23,7 +24,8 @@ export default function Register() {
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png"
             alt=""
           />
-          <button className="loginButton">SignIn</button>
+
+          <button className="loginButton">Sign In</button>
         </div>
       </div>
       <div className="container">

@@ -1,6 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Login.scss";
-
 export default function Login() {
   return (
     <div className="login">
@@ -19,9 +19,12 @@ export default function Login() {
           <input type="email" placeholder="Email or Phone Number" />
           <input type="password" placeholder="Password" />
           <button className="loginButton">SignIn</button>
-          <span>
-            New to Netflix? <b>SignUp Now.</b>
-          </span>
+          <Link to="/register" className="Link">
+            <span>
+              New to Netflix? <b>SignUp Now.</b>
+            </span>
+          </Link>
+
           <small>
             this page is protected by reCAPTCHA and the Google Privacy Policy
             and Terms of Service apply <b>Learn More</b>
