@@ -19,11 +19,14 @@ mongoose.connect(url).then(() => {
 }).catch((err) => {
     console.log("Connection failed", err);
 })
+
+
 app.use(express.json())
 app.use("/api/auth", authRoute)
 app.use("/api/user", userRoute)
 app.use("/api/movie", movieRoute)
 app.use("/api/list", listRoute)
+
 
 
 app.listen(port, () => {

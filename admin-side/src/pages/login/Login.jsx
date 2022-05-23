@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
+import { login } from "../../context/authContext/apiCalls";
+import { AuthContext } from "../../context/authContext/AuthContext";
 import "./Login.css";
 
 export default function Login() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const { isFetching, dispatch } = useContext(AuthContext);
 
   const handleclick = (e) => {
-    e.preventdeafult();
+    e.preventDefault();
+    login({ email, password }, dispatch);
   };
   return (
     <div className="Login">
@@ -23,7 +27,12 @@ export default function Login() {
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button className="loginButton" onClick={handleclick}>
+        <button
+          type="button"
+          className="loginButton"
+          onClick={handleclick}
+          disabled={isFetching}
+        >
           Login
         </button>
       </form>
