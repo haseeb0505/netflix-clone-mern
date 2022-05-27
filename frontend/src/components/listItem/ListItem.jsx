@@ -18,7 +18,7 @@ export default function ListItem({ index, item }) {
         const res = await axios.get("movie/find/" + item, {
           headers: {
             token:
-              "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODI0NDRkYzM0MzE2ZmM4M2E2MWY2YSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1Mjg3MTk5NywiZXhwIjoxNjUzMzAzOTk3fQ.lv6YqUY2uBsI-ewZeTsKAG2XqwzeAmcu4cMu5uK1AL0",
+              "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyODI0NDRkYzM0MzE2ZmM4M2E2MWY2YSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1MzY3MTMyMiwiZXhwIjoxNjU0MTAzMzIyfQ.0cKdkLtR912M1P-7pd6BP5eEqELpTMwo-8SxlsLhrLo",
           },
         });
         setMovie(res.data);
@@ -28,7 +28,7 @@ export default function ListItem({ index, item }) {
     };
     getMovie();
   }, [item]);
-
+  console.log(movie);
   return (
     <Link to="/watch" state={{ movie: movie }}>
       <div
@@ -37,10 +37,10 @@ export default function ListItem({ index, item }) {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <img src={movie.img} alt="" />
+        <img src={movie?.img} alt="" />
         {ishoverd && (
           <>
-            <video src={movie.trailer} autoPlay={true} loop />
+            <video src={movie?.trailer} autoPlay={true} loop />
 
             <div className="itemInfo">
               <div className="icons">
@@ -50,12 +50,12 @@ export default function ListItem({ index, item }) {
                 <ThumbDownAltOutlined className="icon" />
               </div>
               <div className="itemInfoTop">
-                <span>{movie.duration ? movie.duration : "--"}</span>
-                <span className="limit">+{movie.limit} </span>
-                <span>{movie.year} </span>
+                <span>{movie?.duration ? movie?.duration : "--"}</span>
+                <span className="limit">+{movie?.limit} </span>
+                <span>{movie?.year} </span>
               </div>
-              <div className="description">{movie.desc}</div>
-              <div className="genre">{movie.genre}</div>
+              <div className="description">{movie?.desc}</div>
+              <div className="genre">{movie?.genre}</div>
             </div>
           </>
         )}
