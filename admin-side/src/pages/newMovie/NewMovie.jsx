@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import "./newProduct.css";
+import "./newMovie.css";
 import storage from "../../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { createMovie } from "../../context/movieContext/apiCalls";
@@ -15,7 +15,7 @@ export default function NewMovie() {
   const [uploaded, setUploaded] = useState(0);
 
   const { dispatch } = useContext(MovieContext);
-  console.log(uploaded);
+
   const handleChange = (e) => {
     const value = e.target.value;
     setMovie({ ...movie, [e.target.name]: value });

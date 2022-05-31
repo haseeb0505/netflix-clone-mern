@@ -1,4 +1,4 @@
-import "./productList.css";
+import "./movieList.css";
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
 // import { productRows } from "../../dummyData";
@@ -7,7 +7,7 @@ import React, { useContext, useEffect } from "react";
 import { MovieContext } from "../../context/movieContext/MovieContext";
 import { getMovies, deleteMovies } from "../../context/movieContext/apiCalls";
 
-export default function ProductList() {
+export default function MovieList() {
   // const [data, setData] = React.useState(productRows);
   const { movies, dispatch } = useContext(MovieContext);
   console.log(movies);
@@ -48,7 +48,7 @@ export default function ProductList() {
           <>
             <Link
               to={{
-                pathname: `/product/${params.row._id}`,
+                pathname: `/movie/${params.row._id}`,
                 state: { movie: params.row },
               }}
             >

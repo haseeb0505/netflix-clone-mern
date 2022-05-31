@@ -68,9 +68,17 @@ router.get("/", verify, async (req, res) => {
         res.status(500).json(err);
     }
 });
+//Get List 
+router.get("/all", verify, async (req, res) => {
+    try {
+        const list = await List.find();
 
-
-
-
+        res.status(200).json(list.reverse())
+    } catch (error) {
+        res.status(500).json({
+            message: error.message
+        })
+    }
+});
 
 module.exports = router;
