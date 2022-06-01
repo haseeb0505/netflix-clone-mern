@@ -1,7 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { login } from "../../authContext/apiCalls";
+import { AuthContext } from "../../authContext/AuthContext";
 import "./Login.scss";
 export default function Login() {
+  const [email, setEmail] = React.useState("");
+  const [password, setPassWord] = React.useState("");
+  const { dispatch } = React.useContext(AuthContext);
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    login({ email, password }, dispatch);
+  };
   return (
     <div className="login">
       <div className="top">
@@ -16,9 +26,19 @@ export default function Login() {
       <div className="container">
         <form>
           <h1>SignIn</h1>
-          <input type="email" placeholder="Email or Phone Number" />
-          <input type="password" placeholder="Password" />
-          <button className="loginButton">SignIn</button>
+          <input
+            type="email"
+            placeholder="Email or Phone Number"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            onChange={(e) => setPassWord(e.target.value)}
+          />
+          <button className="loginButton" onClick={handleLogin}>
+            SignIn
+          </button>
           <Link to="/register" className="Link">
             <span>
               New to Netflix? <b>SignUp Now.</b>
