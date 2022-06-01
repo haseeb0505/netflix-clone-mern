@@ -1,5 +1,5 @@
 import "./topbar.css";
-import { Link, useHistory } from "react-router-dom";
+// import { Link, useHistory } from "react-router-dom";
 import { NotificationsNone, Language, Settings } from "@material-ui/icons";
 import { AuthContext } from "../../context/authContext/AuthContext";
 import { useContext } from "react";
@@ -27,7 +27,7 @@ export default function Topbar() {
           <div className="topbarIconContainer">
             <Settings />
           </div>
-          {/* <Link to="/login"> */}
+
           <img
             src={
               localStorage?.getItem("user")
@@ -38,7 +38,6 @@ export default function Topbar() {
             className="topAvatar"
             onClick={handleLogout}
           />
-          {/* </Link> */}
         </div>
       </div>
     </div>

@@ -15,7 +15,7 @@ const MovieReducer = (state, action) => {
             };
         case "GET_MOVIES_FAILURE":
             return {
-                user: [],
+                movies: [],
                 isFetching: false,
                 error: true
             };

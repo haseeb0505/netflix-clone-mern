@@ -1,5 +1,19 @@
 import axios from "axios";
-import { getListsStart, getListsSuccess, getListsFailure, DeleteLitsStart, DeleteListSuccess, DeleteListFailure, createListStart, createListSuccess, createListFailure } from "./ListAction";
+import {
+    getListsStart,
+    getListsSuccess,
+    getListsFailure,
+    DeleteLitsStart,
+    DeleteListSuccess,
+    DeleteListFailure,
+    createListStart,
+    createListSuccess,
+    createListFailure,
+    updateListStart,
+    updateListSuccess,
+    updateListFailure
+} from "./ListAction";
+
 
 export const getlists = async (dispatch) => {
 
@@ -29,6 +43,21 @@ export const createList = async (list, dispatch) => {
     } catch (error) {
         console.log(error);
         dispatch(createListFailure());
+    }
+
+}
+export const updateList = async (id, list, dispatch) => {
+
+    try {
+        dispatch(updateListStart());
+        const res = await axios.put("/list/" + id, list, { headers: { token: "bearer " + JSON.parse(localStorage.getItem("user")).accesstoken } });
+
+        dispatch(updateListSuccess(res.data));
+
+
+    } catch (error) {
+        console.log(error);
+        dispatch(updateListFailure());
     }
 
 }

@@ -10,7 +10,6 @@ import { getMovies, deleteMovies } from "../../context/movieContext/apiCalls";
 export default function MovieList() {
   // const [data, setData] = React.useState(productRows);
   const { movies, dispatch } = useContext(MovieContext);
-  console.log(movies);
 
   useEffect(() => {
     getMovies(dispatch);

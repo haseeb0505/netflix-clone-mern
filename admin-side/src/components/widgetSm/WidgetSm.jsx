@@ -15,7 +15,8 @@ export default function WidgetSm() {
               "bearer " + JSON.parse(localStorage.getItem("user")).accesstoken,
           },
         });
-        setNewUser(res.data.users);
+
+        setNewUser(res.data);
       } catch (error) {
         console.log(error);
       }
@@ -26,7 +27,7 @@ export default function WidgetSm() {
     <div className="widgetSm">
       <span className="widgetSmTitle">New Join Members</span>
       <ul className="widgetSmList">
-        {Newuser.map((item, i) => (
+        {Newuser?.map((item, i) => (
           <li className="widgetSmListItem" key={i}>
             <img
               src={

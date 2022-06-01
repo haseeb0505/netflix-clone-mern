@@ -4,6 +4,7 @@ import storage from "../../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { createMovie } from "../../context/movieContext/apiCalls";
 import { MovieContext } from "../../context/movieContext/MovieContext";
+// import { SpinnerCircular } from "spinners-react";
 
 export default function NewMovie() {
   const [movie, setMovie] = useState(null);
@@ -33,6 +34,7 @@ export default function NewMovie() {
         (snapshot) => {
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          console.log(progress);
         },
         (error) => {
           console.log(error);
@@ -173,6 +175,7 @@ export default function NewMovie() {
             onChange={(e) => setVideo(e.target.files[0])}
           />
         </div>
+
         {uploaded === 5 ? (
           <button className="addProductButton" onClick={handleSubmit}>
             Create
