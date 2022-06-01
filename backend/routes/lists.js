@@ -22,6 +22,25 @@ router.post('/', verify, async (req, res) => {
     }
 }
 )
+// / update List  
+router.put('/:id', verify, async (req, res) => {
+    if (req.user.isAdmin) {
+        try {
+            const updateList = await List.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true });
+
+            res.status(200).json({ updateList })
+        } catch (error) {
+            res.status(500).json({
+                message: error.message
+            })
+        }
+    } else {
+        res.status(403).json({
+            message: 'Only admin can update  List'
+        })
+    }
+}
+)
 //delete List 
 router.delete('/:id', verify, async (req, res) => {
     if (req.user.isAdmin) {

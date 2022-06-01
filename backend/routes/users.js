@@ -36,9 +36,7 @@ router.delete('/:id', verify, async (req, res) => {
     if (req.user.id === req.params.id || req.user.isAdmin) {
         try {
             const DeletedUser = await User.findByIdAndDelete(req.params.id);
-            res.status(200).json({
-                message: 'User Deleted'
-            })
+            res.status(200).json('User Deleted')
         } catch (error) {
             res.status(500).json({
                 message: error.message
@@ -74,7 +72,7 @@ router.get('/', verify, async (req, res) => {
         try {
             const users = query ? await User.find().sort({ _id: -1 }).limit(5) : await User.find();
 
-            res.status(200).json({ users })
+            res.status(200).json(users.reverse())
         } catch (error) {
             res.status(500).json({
                 message: error.message
